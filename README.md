@@ -4,7 +4,7 @@ This sprinkle adds support for mail attachments to UserFrosting
 
 ## Deprecation Notice for v2
 
-Due to some weird PHP reasons, it can't seem to accept paremter types that are children of  paremeter types of the parent classes function definition. I'm not sure what PHP version this became a problem in. I don't know if it's just something that I've done wrong, but for some reason the zend compiler barfs at it. As a cheap fix, for v2 of this sprinkle, you now have to call the `sendWithAttachments` or `sendDistinctWithAttachments` instead rather than the normal functions
+Due to some weird PHP reasons, it can't seem to accept paremter types that are children of  paremeter types of the parent classes function definition. I'm not sure what PHP version this became a problem in. I don't know if it's just something that I've done wrong, but for some reason the zend compiler barfs at it. As a cheap fix, for v2 of this sprinkle, you now have to call the `sendWithAttachments` or `sendDistinctWithAttachments` instead rather than the normal functions. I'll probably try and get it implemented in UF's mailer directly rather than having an extension.
 
 ## Usage
 
