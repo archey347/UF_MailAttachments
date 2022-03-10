@@ -2,6 +2,10 @@
  
 This sprinkle adds support for mail attachments to UserFrosting
 
+## Deprecation Notice for v2
+
+Due to some weird PHP reasons, it can't seem to accept paremter types that are children of  paremeter types of the parent classes function definition. I'm not sure what PHP version this became a problem in. For v2 of this sprinkle, you now have to call the `sendWithAttachments` or `sendDistinctWithAttachments` instead rather than the normal functions
+
 ## Usage
 
 Usage is similar, you just need to use differenct classes and a different service.
@@ -39,7 +43,7 @@ To send the message use the `extendedMailer` service
 ```
 $extendedMailer = $this->ci->extendedMailer;
 
-$extendedMailer->sendDistinct($message);
+$extendedMailer->sendDistinctWithAttachments($message);
 ```
 
 ## Options

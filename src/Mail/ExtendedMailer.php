@@ -3,10 +3,29 @@
 namespace UserFrosting\Sprinkle\MailAttachments\Mail;
 
 use UserFrosting\Sprinkle\Core\Mail\Mailer;
+use UserFrosting\Sprinkle\Core\Mail\MailMessage;
+use UserFrosting\Sprinkle\MailAttachments\Mail\ExtendedMailMessage;
 
 class ExtendedMailer extends Mailer 
 {
-    public function send(ExtendedMailMessage $message, $clearRecipients = true)
+    /**
+     * @deprecated
+     */
+    public function send(MailMessage $message, $clearRecipients = true)
+    {
+        throw new \Exception("DEPRECATED. Call sendWithAttachments instead");
+    }
+
+    /**
+     * @deprecated
+     */
+    public function sendDistinct(MailMessage $message, $clearRecipients = true)
+    {
+        throw new \Exception("DEPRECATED. Call sendDistinctWithAttachments instead");     
+    }
+
+
+    public function sendWithAttachments(ExtendedMailMessage $message, $clearRecipients = true)
     {
         $attachments = $message->getAttachments();
 
@@ -24,7 +43,7 @@ class ExtendedMailer extends Mailer
         parent::send($message, $clearRecipients);
     }
 
-    public function sendDistinct(ExtendedMailMessage $message, $clearRecipients = true)
+    public function sendDistinctWithAttachments(ExtendedMailMessage $message, $clearRecipients = true)
     {
         $attachments = $message->getAttachments();
 
